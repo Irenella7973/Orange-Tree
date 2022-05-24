@@ -28,11 +28,11 @@ describe('OrangeTree', () => {
     });
 
     test('should make the tree grow', () => {
-      // This should be more explicit. How much should the tree grow?
-    });
+// Это должно быть более явным. Насколько должно вырасти дерево?
+});
 
-    // If the tree is old enough to bear fruit
-    test('should cause the tree to produce oranges', () => {
+// Если дерево достаточно взрослое, чтобы плодоносить
+test('should cause the tree to produce oranges', () => {
 
     });
 
