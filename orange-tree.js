@@ -1,16 +1,21 @@
 class OrangeTree {
-  constructor(age, height, orange) {
+  constructor(age = 0, height = 0) {
     this.age = age;
     this.height = height;
-    this.orange = orange;
+    this.orange = [];
   }
 
   passGrowingSeason() {
+    let randomNum = Math.floor(Math.random() * (10 - 1) + 1);
     this.age += 1;
-    this.orange = 0;
-    while (this.height < 25) this.height += 2.5;
-    if (this.age > 6) this.orange = Math.floor(Math.random() * (300 - 100) + 100)
-  }
+    if (this.height < 25) this.height += 2.5;
+    if (this.age > 6) {
+      for (let i = 0; i < randomNum; i++) {
+        this.orange.push(new Orange())
+      }
+    }
+    console.log(this.orange)
+  } 
 
   isMature() {
     // Возвращает true, если дерево достаточно взрослое, чтобы приносить плоды, иначе false 
@@ -22,20 +27,22 @@ class OrangeTree {
   }
 
   isDead() {
-    if (this.age >= 100) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.age >= 100
+    // if (this.age >= 100) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   hasOranges() {
     // Возвращает true, если на дереве есть апельсины, иначе false
-    if (this.orange > 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.orange.length > 0
+    // if (this.orange.length > 0) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   pickAnOrange() {
@@ -45,7 +52,20 @@ class OrangeTree {
       throw Error('This tree has no oranges');
     }
     //  orange-picking logic goes here
-    this.orange -= 1;
+    return this.orange.pop();
+    
   }
 }
-module.exports = OrangeTree;
+// const orange = new OrangeTree(7,10)
+// console.log(orange)
+// orange.passGrowingSeason()
+// console.log(orange)
+// console.log(orange.isMature())
+// console.log(orange.isDead())
+// orange.passGrowingSeason()
+// console.log(orange)
+// orange.hasOranges()
+// orange.passGrowingSeason()
+// console.log(orange)
+
+// module.exports = OrangeTree;

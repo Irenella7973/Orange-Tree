@@ -59,7 +59,10 @@ describe('OrangeTree', () => {
       tree = new OrangeTree(age, height, orange);
     });
     test('returns true if tree is old enough to bear fruit', () => {
+
       expect(tree.height).toBe(height+2.5);
+      // const age = 6
+
     });
 
     test('returns false if tree is not old enough to bear fruit', () => {
